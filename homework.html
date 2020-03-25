@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let areaA = [1, 38];
+        let areaB = [1, 8];
+
+        let result = [];
+
+        const rand = (min, max) => {
+            return Math.round(Math.random() * (max - min)) + min;
+        }
+
+        const randNum = (result, times, min, max) => {
+            let i = 0;
+            while (i < times) {
+                let num = rand(min, max);
+
+                if (result.indexOf(num) == -1) {
+                    result[i] = num;
+                    i++;
+                }
+            }
+        }
+
+        randNum(result, 6, areaA[0], areaA[1]);
+        document.write(`<h2>A區的號碼為${result.sort((a, b) => { return a - b })}</h2>`);
+
+        result = [];
+        randNum(result, 1, areaB[0], areaB[1]);
+        document.write(`<h2>B區的號碼為${result}</h2>`);
+
+
+
+    </script>
+</body>
+
+</html>
